@@ -5,7 +5,7 @@ pkgs = ["hived", "hived.src"]
 install_requires = ["ctpbee", "redis", "click", "pandas"]
 setup(
     name="hived",
-    version="0.1",
+    version="0.2",
     description="Auto data service with ctpbee for linux. Do not support windows in here",
     author="somewheve",
     author_email="somewheve@gmail.com",

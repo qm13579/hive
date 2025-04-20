@@ -40,7 +40,10 @@ class WorkBench(CtpbeeApi):
                       tick.bid_price_5, tick.bid_volume_5
                       ]
         if self.tick_save:
-            self.rd.rpush(tick.local_symbol, str(tick_value))
+            if self.subscribe_contract == "*":
+                self.rd.rpush(tick.local_symbol, str(tick_value))
+            elif tick.local_symbol in self.subscribe_contract:
+                self.rd.rpush(tick.local_symbol, str(tick_value))
         if self.tick_dispatch:
             self.rd.publish(tick.local_symbol, str(tick_value))
 
